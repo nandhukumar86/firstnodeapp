@@ -1,8 +1,8 @@
 const axios = require('axios');
 
 const integrationApiClient = axios.create({
-    baseURL: 'https://apihub.document360.info/v1',
-    headers: { 'Content-Type': 'application/json', 'api_token': '51xI6pLagkrhBUM9QQOE6k7XFnbZYROx8krdClXBxJsnOZUTAjmPzn4oJ4Pushs1nGHgpKxYCN84bCDEtqkg+6O6oUzbfSOx4zyuiOGhnNFy6b6m+sIxxL3dfARR5megBF9mvqs5woW492B5QHe/TA==' }
+    baseURL: 'https://apihub.document360.net/v1',
+    headers: { 'Content-Type': 'application/json', 'api_token': '/KPDRCQ8AAGm3dOkXdO5h8Z6CNeHCV2WObdv35iS0K/UzAcsHkG22QyEVI4CZs2Y4OCZkA5HXV2SS626hUFu326SmkYCuQ2WmbdOG9xYMZSN+Kp4/NKSlejoy1hbVsfu++CN9u3+gC7RyeL8wPvNzg==' }
 });
 
 Array.prototype.random = function () {
@@ -42,7 +42,10 @@ integrationApiClient.get('/ProjectVersions')
         versions.forEach(version => {
             version.data.data.forEach(article => {
 
-                integrationApiClient.put(`/Articles/${article.id}`, {title : titles.random(), content : contents.random()})
+                _title = titles.random();
+                _content = contents.random();
+                integrationApiClient.put(`/Articles/${article.id}`, {title : _title, content : _content})
+                integrationApiClient.put(`/Articles/${article.id}/fr`, {title : _title, content : _content})
 
             })
         });
