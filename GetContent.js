@@ -14,7 +14,7 @@ integrationApiClient.get('/ProjectVersions')
         data = []
         versions.forEach(version => {
             version.data.data.forEach(article => {
-                integrationApiClient.get(`/Articles/${article.id}`)
+                integrationApiClient.get(`/Articles/${article.id}/fr`)
                 .then(res=>{ 
                     console.log('----------------Article------------------')
                     console.log(`Title: ${res.data.data.title}`);

@@ -44,8 +44,9 @@ integrationApiClient.get('/ProjectVersions')
 
                 _title = titles.random();
                 _content = contents.random();
-                integrationApiClient.put(`/Articles/${article.id}`, {title : _title, content : _content})
-                integrationApiClient.put(`/Articles/${article.id}/fr`, {title : _title, content : _content})
+                integrationApiClient.put(`/Articles/${article.id}`, {title : _title, content : _content, html_content : _content})
+                //integrationApiClient.put(`/Articles/${article.id}/fr`, {title : _title, content : "", html_content : ""})
+                //integrationApiClient.put(`/Articles/${article.id}/fr`, {title : _title, content : _content})
 
             })
         });
